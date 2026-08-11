@@ -43,10 +43,10 @@ export function SplitSection({
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: reverse ? 56 : -56 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-15%" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className={`lg:col-span-6 ${reverse ? "lg:order-2" : ""}`}
           >
             <Tag>{eyebrow}</Tag>
@@ -100,9 +100,19 @@ export function SplitSection({
             ) : null}
           </motion.div>
 
-          <div className={`lg:col-span-6 ${reverse ? "lg:order-1" : ""}`}>
-            <GeometricPanel label={index} tone={isDarkTone ? "dark" : "light"} rotate={reverse ? 4 : -4} />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: reverse ? -56 : 56 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+            className={`lg:col-span-6 ${reverse ? "lg:order-1" : ""}`}
+          >
+            <GeometricPanel
+              label={index}
+              tone={isDarkTone ? "dark" : "light"}
+              rotate={reverse ? 4 : -4}
+            />
+          </motion.div>
         </div>
       </Container>
     </section>
