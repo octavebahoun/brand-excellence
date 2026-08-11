@@ -3,7 +3,7 @@ import type { TeamMember } from "@/lib/team-data";
 
 export function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-card border border-border-gray/60 bg-card-light transition-transform hover:-translate-y-1 dark:bg-card-dark">
+    <article className="flex h-full flex-col overflow-hidden border-2 border-green-primary/70 bg-card-light shadow-[5px_5px_0_0_var(--color-green-primary)] transition-shadow hover:border-orange-accent hover:shadow-[7px_7px_0_0_var(--color-orange-accent)] dark:border-white/25 dark:bg-card-dark dark:shadow-[5px_5px_0_0_rgba(248,250,252,0.18)] dark:hover:border-orange-accent dark:hover:shadow-[7px_7px_0_0_var(--color-orange-accent)]">
       <div className="relative aspect-square overflow-hidden">
         <Image
           src={member.image}

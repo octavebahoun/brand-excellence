@@ -20,9 +20,12 @@ export default function AboutPage() {
           <SectionHeading eyebrow={about.eyebrow} title={about.title} intro={about.intro} />
         </Reveal>
 
-        <Reveal delay={0.1} className="rounded-card border border-border-gray/60 bg-green-primary p-10 text-text-light sm:p-14">
+        <Reveal
+          delay={0.1}
+          className="border-2 border-bg-dark bg-green-primary p-10 text-text-light shadow-[8px_8px_0_0_var(--color-orange-accent)] sm:p-14 dark:border-white/20"
+        >
           <Tag>{about.mission.eyebrow}</Tag>
-          <h2 className="mt-5 text-2xl font-extrabold tracking-tight sm:text-3xl">
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight sm:text-4xl">
             {about.mission.title}
           </h2>
           <p className="mt-4 max-w-2xl text-text-light/80">{about.mission.body}</p>
@@ -37,17 +40,21 @@ export default function AboutPage() {
           </div>
         </Reveal>
 
-        <div className="mt-24">
+        <div className="mt-32">
           <Reveal>
             <Tag>{about.teamEyebrow}</Tag>
-            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-green-primary sm:text-4xl dark:text-text-light">
+            <h2 className="mt-5 text-4xl font-extrabold leading-[0.95] tracking-tight text-green-primary sm:text-5xl dark:text-text-light">
               {about.teamTitle}
             </h2>
           </Reveal>
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member, i) => (
-              <Reveal key={member.id} delay={(i % 4) * 0.08}>
+              <Reveal
+                key={member.id}
+                delay={(i % 4) * 0.08}
+                className={i % 2 === 1 ? "lg:mt-8" : ""}
+              >
                 <TeamCard member={member} />
               </Reveal>
             ))}

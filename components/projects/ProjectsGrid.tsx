@@ -28,10 +28,10 @@ export function ProjectsGrid() {
             key={f.value}
             type="button"
             onClick={() => setFilter(f.value)}
-            className={`relative rounded-btn border px-4 py-2 text-sm font-medium transition-colors ${
+            className={`relative border-2 px-4 py-2 text-sm font-medium transition-colors ${
               filter === f.value
-                ? "border-orange-accent text-bg-dark"
-                : "border-border-gray text-text-dark hover:border-orange-accent hover:text-orange-accent dark:text-text-light"
+                ? "border-bg-dark text-bg-dark dark:border-text-light"
+                : "border-green-primary/70 text-text-dark hover:border-orange-accent hover:text-orange-accent dark:border-white/25 dark:text-text-light"
             }`}
           >
             {filter === f.value ? (
@@ -48,8 +48,12 @@ export function ProjectsGrid() {
 
       <motion.div layout className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
-          {visible.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {visible.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              className={i % 3 === 1 ? "lg:mt-8" : ""}
+            />
           ))}
         </AnimatePresence>
       </motion.div>
