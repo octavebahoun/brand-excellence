@@ -1,5 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "motion/react";
 import { ReactNode } from "react";
+
+const MotionLink = motion.create(Link);
+
+const tapAnimation = { whileHover: { scale: 1.03 }, whileTap: { scale: 0.97 } };
 
 export function CtaButton({
   href,
@@ -23,15 +30,21 @@ export function CtaButton({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noreferrer" className={`${base} ${styles}`}>
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className={`${base} ${styles}`}
+        {...tapAnimation}
+      >
         {children}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <Link href={href} className={`${base} ${styles}`}>
+    <MotionLink href={href} className={`${base} ${styles}`} {...tapAnimation}>
       {children}
-    </Link>
+    </MotionLink>
   );
 }

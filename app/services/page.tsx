@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Tag } from "@/components/ui/Tag";
 import { services } from "@/lib/services-content";
@@ -15,56 +16,63 @@ export default function ServicesPage() {
   return (
     <div className="py-20">
       <Container>
-        <SectionHeading eyebrow={services.eyebrow} title={services.title} intro={services.intro} />
+        <Reveal>
+          <SectionHeading
+            eyebrow={services.eyebrow}
+            title={services.title}
+            intro={services.intro}
+          />
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {services.pillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="rounded-card border border-border-gray/60 bg-card-light p-8 dark:bg-card-dark"
-            >
-              <span className="font-mono text-sm text-orange-accent">{pillar.tag}</span>
-              <h3 className="mt-3 text-xl font-bold text-green-primary dark:text-text-light">
-                {pillar.title}
-              </h3>
-              <p className="mt-3 text-sm text-muted-light dark:text-muted-dark">
-                {pillar.description}
-              </p>
-              <ul className="mt-5 flex flex-wrap gap-1.5">
-                {pillar.evidence.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-btn border border-border-gray/60 px-2 py-0.5 font-mono text-[10px] text-muted-light dark:text-muted-dark"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {services.pillars.map((pillar, i) => (
+            <Reveal key={pillar.title} delay={i * 0.08}>
+              <div className="h-full rounded-card border border-border-gray/60 bg-card-light p-8 transition-transform hover:-translate-y-1 dark:bg-card-dark">
+                <span className="font-mono text-sm text-orange-accent">{pillar.tag}</span>
+                <h3 className="mt-3 text-xl font-bold text-green-primary dark:text-text-light">
+                  {pillar.title}
+                </h3>
+                <p className="mt-3 text-sm text-muted-light dark:text-muted-dark">
+                  {pillar.description}
+                </p>
+                <ul className="mt-5 flex flex-wrap gap-1.5">
+                  {pillar.evidence.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-btn border border-border-gray/60 px-2 py-0.5 font-mono text-[10px] text-muted-light dark:text-muted-dark"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           ))}
         </div>
 
         <div className="mt-24">
-          <Tag>{services.methodologyEyebrow}</Tag>
-          <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-green-primary sm:text-4xl dark:text-text-light">
-            {services.methodologyTitle}
-          </h2>
+          <Reveal>
+            <Tag>{services.methodologyEyebrow}</Tag>
+            <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-green-primary sm:text-4xl dark:text-text-light">
+              {services.methodologyTitle}
+            </h2>
+          </Reveal>
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {services.methodology.map((item) => (
-              <div key={item.title}>
+            {services.methodology.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.08}>
                 <p className="font-semibold text-text-dark dark:text-text-light">{item.title}</p>
                 <p className="mt-2 text-sm text-muted-light dark:text-muted-dark">
                   {item.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
-        <div className="mt-20">
+        <Reveal className="mt-20">
           <CtaButton href="/contact">Discuter de votre projet</CtaButton>
-        </div>
+        </Reveal>
       </Container>
     </div>
   );

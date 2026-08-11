@@ -1,9 +1,20 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import type { Project } from "@/lib/projects-data";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-card border border-border-gray/60 bg-card-light transition-colors hover:border-orange-accent/50 dark:bg-card-dark">
+    <motion.article
+      layout
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -16 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -4 }}
+      className="group flex flex-col overflow-hidden rounded-card border border-border-gray/60 bg-card-light transition-colors hover:border-orange-accent/50 dark:bg-card-dark"
+    >
       <div className="relative aspect-[16/10] overflow-hidden">
         {project.image ? (
           <Image
@@ -72,6 +83,6 @@ export function ProjectCard({ project }: { project: Project }) {
           </div>
         ) : null}
       </div>
-    </article>
+    </motion.article>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { contactPage } from "@/lib/pages-content";
 import { siteConfig } from "@/lib/site-config";
@@ -16,56 +17,56 @@ export default function ContactPage() {
   return (
     <div className="py-20">
       <Container>
-        <SectionHeading
-          eyebrow={contactPage.eyebrow}
-          title={contactPage.title}
-          intro={contactPage.intro}
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow={contactPage.eyebrow}
+            title={contactPage.title}
+            intro={contactPage.intro}
+          />
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <form
-            action={siteConfig.formspreeEndpoint}
-            method="POST"
-            className="space-y-5 lg:col-span-7"
-          >
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium">
-                  {contactPage.nameLabel}
-                </label>
-                <input id="name" name="name" type="text" required className={inputClasses} />
+          <Reveal delay={0.1} className="lg:col-span-7">
+            <form action={siteConfig.formspreeEndpoint} method="POST" className="space-y-5">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="mb-2 block text-sm font-medium">
+                    {contactPage.nameLabel}
+                  </label>
+                  <input id="name" name="name" type="text" required className={inputClasses} />
+                </div>
+                <div>
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium">
+                    {contactPage.emailLabel}
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className={inputClasses}
+                  />
+                </div>
               </div>
+
               <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium">
-                  {contactPage.emailLabel}
+                <label htmlFor="message" className="mb-2 block text-sm font-medium">
+                  {contactPage.messageLabel}
                 </label>
-                <input id="email" name="email" type="email" required className={inputClasses} />
+                <textarea id="message" name="message" rows={6} required className={inputClasses} />
               </div>
-            </div>
 
-            <div>
-              <label htmlFor="message" className="mb-2 block text-sm font-medium">
-                {contactPage.messageLabel}
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                required
-                className={inputClasses}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="rounded-btn bg-orange-accent px-6 py-3 text-sm font-semibold text-bg-dark transition-colors hover:bg-orange-accent/90"
-            >
-              {contactPage.submitLabel}
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="rounded-btn bg-orange-accent px-6 py-3 text-sm font-semibold text-bg-dark transition-colors hover:bg-orange-accent/90"
+              >
+                {contactPage.submitLabel}
+              </button>
+            </form>
+          </Reveal>
 
           <div className="space-y-6 lg:col-span-5">
-            <div className="rounded-card border border-border-gray/60 bg-card-light p-8 dark:bg-card-dark">
+            <Reveal delay={0.2} className="rounded-card border border-border-gray/60 bg-card-light p-8 transition-transform hover:-translate-y-1 dark:bg-card-dark">
               <h3 className="font-mono text-xs uppercase tracking-wide text-orange-accent">
                 {contactPage.bookingTitle}
               </h3>
@@ -80,9 +81,9 @@ export default function ContactPage() {
               >
                 {contactPage.bookingCta}
               </a>
-            </div>
+            </Reveal>
 
-            <div className="rounded-card border border-border-gray/60 bg-card-light p-8 dark:bg-card-dark">
+            <Reveal delay={0.3} className="rounded-card border border-border-gray/60 bg-card-light p-8 transition-transform hover:-translate-y-1 dark:bg-card-dark">
               <h3 className="font-mono text-xs uppercase tracking-wide text-orange-accent">
                 {contactPage.coordinatesTitle}
               </h3>
@@ -107,7 +108,7 @@ export default function ContactPage() {
                 </li>
                 <li className="text-muted-light dark:text-muted-dark">{siteConfig.domain}</li>
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </Container>

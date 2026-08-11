@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TeamCard } from "@/components/about/TeamCard";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Tag } from "@/components/ui/Tag";
 import { about } from "@/lib/about-content";
@@ -15,9 +16,11 @@ export default function AboutPage() {
   return (
     <div className="py-20">
       <Container>
-        <SectionHeading eyebrow={about.eyebrow} title={about.title} intro={about.intro} />
+        <Reveal>
+          <SectionHeading eyebrow={about.eyebrow} title={about.title} intro={about.intro} />
+        </Reveal>
 
-        <div className="rounded-card border border-border-gray/60 bg-green-primary p-10 text-text-light sm:p-14">
+        <Reveal delay={0.1} className="rounded-card border border-border-gray/60 bg-green-primary p-10 text-text-light sm:p-14">
           <Tag>{about.mission.eyebrow}</Tag>
           <h2 className="mt-5 text-2xl font-extrabold tracking-tight sm:text-3xl">
             {about.mission.title}
@@ -32,17 +35,21 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-24">
-          <Tag>{about.teamEyebrow}</Tag>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-green-primary sm:text-4xl dark:text-text-light">
-            {about.teamTitle}
-          </h2>
+          <Reveal>
+            <Tag>{about.teamEyebrow}</Tag>
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-green-primary sm:text-4xl dark:text-text-light">
+              {about.teamTitle}
+            </h2>
+          </Reveal>
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <TeamCard key={member.id} member={member} />
+            {team.map((member, i) => (
+              <Reveal key={member.id} delay={(i % 4) * 0.08}>
+                <TeamCard member={member} />
+              </Reveal>
             ))}
           </div>
         </div>
