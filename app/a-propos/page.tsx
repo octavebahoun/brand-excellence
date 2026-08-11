@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { TeamCard } from "@/components/about/TeamCard";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -37,6 +38,18 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm text-text-light/70">{value.description}</p>
               </div>
             ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15} className="mt-16">
+          <div className="relative aspect-[21/9] overflow-hidden border-2 border-green-primary shadow-[8px_8px_0_0_var(--color-orange-accent)] dark:border-white/20">
+            <Image
+              src={about.cultureImage}
+              alt="Espace de travail et culture d'équipe"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </Reveal>
 

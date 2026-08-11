@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { home } from "@/lib/home-content";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton } from "../ui/CtaButton";
 import { Container } from "../ui/Container";
-import { Logo } from "../ui/Logo";
 import { Tag } from "../ui/Tag";
 
 export function ClosingCta() {
@@ -19,18 +19,18 @@ export function ClosingCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-15%" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-card border border-white/10 bg-bg-dark"
+          className="relative isolate overflow-hidden border-2 border-orange-accent shadow-[8px_8px_0_0_var(--color-green-primary)]"
         >
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-green-primary/60 blur-3xl" />
-            <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-orange-accent/20 blur-3xl" />
-          </div>
-          <Logo
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 text-white/[0.05] sm:h-80 sm:w-80"
+          <Image
+            src={closing.image}
+            alt=""
+            fill
+            sizes="100vw"
+            className="-z-10 object-cover"
           />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-bg-dark via-bg-dark/85 to-bg-dark/50" />
 
-          <div className="relative px-8 py-20 text-center sm:px-16 sm:py-28">
+          <div className="px-8 py-20 text-center sm:px-16 sm:py-28">
             <Tag>{closing.eyebrow}</Tag>
             <h2 className="mx-auto mt-6 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-text-light sm:text-4xl">
               {closing.title}
