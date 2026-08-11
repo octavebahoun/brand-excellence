@@ -3,6 +3,7 @@
     "eyebrow": "EXCELLENCE TEAM",
     "title": "L'innovation tech n'attend pas les années d'expérience.",
     "subtitle": "Nous construisons des architectures cloud robustes et des applications SaaS scalables, propulsées par l'énergie des meilleurs talents universitaires.",
+    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1786444905/WhatsApp_Image_2026-08-06_at_08.46.08_rhucps.jpg",
     "primaryCta": { "label": "Explorer nos projets open-source", "href": "/projets" },
     "secondaryCta": { "label": "Voir nos services", "href": "/services" }
   },
