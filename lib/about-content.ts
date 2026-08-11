@@ -15,6 +15,7 @@ export interface AboutContent {
     body: string;
   };
   values: AboutValue[];
+  cultureImage: string;
   teamEyebrow: string;
   teamTitle: string;
 }

@@ -28,7 +28,8 @@
         }
       ],
       "reverse": false,
-      "tone": "light"
+      "tone": "light",
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1786445843/02_mn4fdb.png"
     },
     {
       "id": "solution",
@@ -51,7 +52,8 @@
       ],
       "reverse": true,
       "tone": "light",
-      "cta": { "label": "Lancer une simulation de projet", "href": "/contact" }
+      "cta": { "label": "Lancer une simulation de projet", "href": "/contact" },
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1786445821/03_pieghr.png"
     },
     {
       "id": "architecture",
@@ -73,7 +75,8 @@
         }
       ],
       "reverse": false,
-      "tone": "dark"
+      "tone": "dark",
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1786445829/04_pmfxke.png"
     },
     {
       "id": "equipe",
@@ -96,13 +99,15 @@
       ],
       "reverse": true,
       "tone": "light",
-      "cta": { "label": "Découvrir l'équipe", "href": "/a-propos" }
+      "cta": { "label": "Découvrir l'équipe", "href": "/a-propos" },
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1786445848/05_xx9tc6.png"
     }
   ],
   "closing": {
     "eyebrow": "TEAM • TECH • INNOVATION",
     "title": "Bâtissons votre prochaine innovation.",
     "subtitle": "Rejoignez un collectif d'étudiants talentueux déterminés à redéfinir les standards de la tech d'entreprise.",
-    "cta": { "label": "Planifier un entretien technique", "href": "/contact" }
+    "cta": { "label": "Planifier un entretien technique", "href": "/contact" },
+    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1786445838/06_sufhqv.png"
   }
 }

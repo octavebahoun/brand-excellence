@@ -19,6 +19,7 @@ export interface HomeSection {
   reverse: boolean;
   tone: "light" | "dark";
   cta?: HomeCta;
+  image?: string;
 }
 
 export interface HomeContent {
@@ -36,6 +37,7 @@ export interface HomeContent {
     title: string;
     subtitle: string;
     cta: HomeCta;
+    image: string;
   };
 }
 
