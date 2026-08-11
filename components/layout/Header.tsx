@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks } from "@/lib/site-config";
@@ -29,13 +30,20 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-btn px-4 py-2 text-sm font-medium transition-colors ${
+                className={`relative rounded-btn px-4 py-2 text-sm font-medium transition-colors ${
                   active
                     ? "text-orange-accent"
                     : "text-text-dark hover:text-orange-accent dark:text-text-light"
                 }`}
               >
                 {link.label}
+                {active ? (
+                  <motion.span
+                    layoutId="nav-active-underline"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-orange-accent"
+                  />
+                ) : null}
               </Link>
             );
           })}
@@ -70,23 +78,31 @@ export function Header() {
         </div>
       </div>
 
-      {open ? (
-        <nav className="border-t border-border-gray/60 bg-bg-light px-8 py-4 lg:hidden dark:bg-bg-dark">
-          <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-btn px-3 py-2 text-sm font-medium text-text-dark hover:text-orange-accent dark:text-text-light"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      ) : null}
+      <AnimatePresence>
+        {open ? (
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden border-t border-border-gray/60 bg-bg-light lg:hidden dark:bg-bg-dark"
+          >
+            <ul className="flex flex-col gap-1 px-8 py-4">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-btn px-3 py-2 text-sm font-medium text-text-dark hover:text-orange-accent dark:text-text-light"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.nav>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

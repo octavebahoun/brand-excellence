@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState } from "react";
 import { categoryLabels, projects, type ProjectCategory } from "@/lib/projects-data";
 import { ProjectCard } from "./ProjectCard";
@@ -27,22 +28,31 @@ export function ProjectsGrid() {
             key={f.value}
             type="button"
             onClick={() => setFilter(f.value)}
-            className={`rounded-btn border px-4 py-2 text-sm font-medium transition-colors ${
+            className={`relative rounded-btn border px-4 py-2 text-sm font-medium transition-colors ${
               filter === f.value
-                ? "border-orange-accent bg-orange-accent text-bg-dark"
+                ? "border-orange-accent text-bg-dark"
                 : "border-border-gray text-text-dark hover:border-orange-accent hover:text-orange-accent dark:text-text-light"
             }`}
           >
+            {filter === f.value ? (
+              <motion.span
+                layoutId="filter-pill"
+                transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                className="absolute inset-0 -z-10 rounded-btn bg-orange-accent"
+              />
+            ) : null}
             {f.label}
           </button>
         ))}
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {visible.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+      <motion.div layout className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <AnimatePresence mode="popLayout">
+          {visible.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }
