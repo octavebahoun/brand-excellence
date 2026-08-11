@@ -26,6 +26,7 @@ export interface HomeContent {
     eyebrow: string;
     title: string;
     subtitle: string;
+    image: string;
     primaryCta: HomeCta;
     secondaryCta: HomeCta;
   };
