@@ -1,0 +1,207 @@
+export type ProjectCategory = "opensource" | "produit" | "client";
+
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  kind: string;
+  category: ProjectCategory;
+  summary: string;
+  detail: string;
+  stack: string[];
+  links: ProjectLink[];
+  /** Local /public path or remote (Cloudinary) URL. Absent = styled fallback card. */
+  image?: string;
+  date?: string;
+  /** Contenu provisoire en attente de mise à jour par l'équipe. */
+  isDraft?: boolean;
+}
+
+export const categoryLabels: Record<ProjectCategory, string> = {
+  opensource: "Open Source",
+  produit: "Produits",
+  client: "Projets Clients",
+};
+
+export const projects: Project[] = [
+  // --- Open Source -----------------------------------------------------
+  {
+    id: "codetovecto",
+    title: "Codetovecto",
+    kind: "Package NPM · CLI Open Source",
+    category: "opensource",
+    summary:
+      "CLI Node.js d'extraction sémantique et de vectorisation de code source pour alimenter des pipelines RAG.",
+    detail:
+      "Découpe intelligemment un dépôt en unités sémantiques, génère les structures JSON et les bases vectorielles prêtes à être consommées par un LLM. Publié publiquement sur le registre NPM.",
+    stack: ["Node.js", "CLI", "RAG", "Vector Embeddings", "JSON"],
+    links: [
+      { label: "Voir sur NPM", url: "https://www.npmjs.com/package/codetovecto" },
+      { label: "GitHub", url: "https://github.com/octavebahoun" },
+    ],
+  },
+  {
+    id: "tofitune",
+    title: "To_fitune",
+    kind: "Dataset Studio pour LLMs",
+    category: "opensource",
+    summary:
+      "Studio de génération, comparaison et curation de datasets pour le fine-tuning de LLMs spécialisés en design.",
+    detail:
+      "10 modèles évalués en parallèle (GPT-4o, O3 Mini, Gemini 2.5 Pro, Gemini 2.0 Flash, Llama 3.3 70B, Qwen3, Kimi K2, Nemotron 49B). Système de pression compétitive : chaque modèle reçoit l'historique des 5 dernières évaluations et le classement en direct. Juge automatique scorant sur 4 axes — Visuel, Code, Sécurité, Logique. Export JSON Master compatible Alpaca, ShareGPT et HuggingFace.",
+    stack: ["FastAPI", "React", "Zustand", "PostgreSQL", "SQLite", "Docker Compose"],
+    links: [{ label: "Repo GitHub", url: "https://github.com/octavebahoun/To_fitune" }],
+  },
+  {
+    id: "nowstudy",
+    title: "NowStudy",
+    kind: "PWA étudiante intelligente",
+    category: "opensource",
+    summary:
+      "Carnet de notes intelligent : formules de calcul par matière, révisions assistées par IA et podcasts audio générés.",
+    detail:
+      "PWA React 18 avec détection automatique des coefficients, IA de révision via Groq SDK (LLaMA3, Mixtral, Gemma) produisant flashcards, quiz, résumés et visualiseurs RAG. Podcasts audio via microservice Flask gTTS, notifications Push VAPID, mode hors-ligne Workbox, bulletin PDF jsPDF et système de badges de réussite.",
+    stack: ["React 18 PWA", "Express", "MongoDB Atlas", "Flask gTTS", "Groq SDK", "Workbox"],
+    links: [
+      { label: "Application", url: "https://nowstudy.vercel.app" },
+      { label: "Repo GitHub", url: "https://github.com/octavebahoun/Study" },
+    ],
+  },
+  {
+    id: "videogen",
+    title: "VideoGen v2",
+    kind: "Markdown → Vidéo",
+    category: "opensource",
+    summary:
+      "Moteur de rendu vidéo qui transforme un document Markdown en film cinématique MP4 avec voix off.",
+    detail:
+      "Éditeur Markdown temps réel avec preview dans le lecteur, slides cinématiques (titres, concepts, schémas, citations), rendu MP4 natif via Remotion et FFmpeg, génération de voix off TTS par microservice Flask.",
+    stack: ["React", "Vite", "Tailwind v4", "Remotion", "Flask", "FFmpeg"],
+    links: [{ label: "Repo GitHub", url: "https://github.com/octavebahoun/VideoGen" }],
+  },
+  {
+    id: "excellencelink",
+    title: "ExcellenceLink",
+    kind: "Gestionnaire de liens par IA",
+    category: "opensource",
+    summary:
+      "PWA d'organisation, de stockage et d'analyse de liens web, enrichis automatiquement par IA (Gemini).",
+    detail:
+      "Chaque lien ajouté est enrichi de métadonnées via Gemini 1.5 Flash (titre, description, image OpenGraph, résumé de contenu). Isolation stricte par utilisateur, corbeille avec restauration, catégories avec compteurs intelligents, API REST protégée par Laravel Sanctum.",
+    stack: ["Laravel", "Sanctum", "Gemini 1.5 Flash", "PWA", "API REST"],
+    links: [{ label: "Application", url: "https://link-ptne.onrender.com/" }],
+  },
+
+  // --- Produits SaaS -----------------------------------------------------
+  {
+    id: "renderx",
+    title: "RenderX",
+    kind: "SaaS de rendu vidéo",
+    category: "produit",
+    isDraft: true,
+    summary:
+      "Plateforme SaaS de génération de vidéos dynamiques à partir de composants web (HTML/CSS), via le moteur HyperFrames.",
+    detail:
+      "Rendu de vidéos (MP4) à partir de composants web, propulsé par HyperFrames. Fiche en cours de finalisation par l'équipe.",
+    stack: ["HyperFrames"],
+    links: [],
+  },
+  {
+    id: "write",
+    title: "Write",
+    kind: "Générateur de sites par IA",
+    category: "produit",
+    isDraft: true,
+    date: "Hackathon EPITNET 2026",
+    summary:
+      "Décrivez une activité en une phrase, obtenez un site vitrine complet : structure, textes, direction artistique, animations.",
+    detail:
+      "Le modèle ne produit jamais de code : il remplit un contrat JSON validé par Zod, qu'un moteur de rendu déterministe transforme en site statique — un résultat vérifiable à chaque étape, réparable section par section et éditable par formulaire. Modifiable puis publiable directement. Fiche en cours de finalisation par l'équipe.",
+    stack: ["JSON Schema", "Zod"],
+    links: [],
+  },
+  {
+    id: "academix",
+    title: "Academix",
+    kind: "Gestion scolaire SaaS",
+    category: "produit",
+    date: "Février 2025",
+    image:
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955345/academix_fn4oat.png",
+    summary:
+      "Système de gestion scolaire : notes, bulletins automatisés et portail parents pour établissements d'enseignement secondaire.",
+    detail:
+      "Plateforme académique tout-en-un combinant organisation intelligente, IA générative et collaboration sociale pour maximiser les chances de réussite des étudiants, avec une faible ingérence administrative.",
+    stack: [],
+    links: [
+      { label: "Voir le site", url: "https://team-d-excellence-hackbyifri-2026.vercel.app/" },
+    ],
+  },
+  {
+    id: "wine-by-excellence",
+    title: "Wine by Excellence",
+    kind: "Plateforme de pilotage d'équipes",
+    category: "produit",
+    image:
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1782889902/Capture_d_%C3%A9cran_du_2026-07-01_08-09-40_y8o8ru.webp",
+    summary:
+      "Espace de pilotage de projets, contenus, talents et rapports pour équipes distribuées.",
+    detail:
+      "Interface premium, lisible, pensée pour les équipes qui exécutent depuis Lokossa, Cotonou et partout au Bénin.",
+    stack: [],
+    links: [{ label: "Voir le site", url: "https://wine-ebon.vercel.app/" }],
+  },
+
+  // --- Projets Clients -----------------------------------------------------
+  {
+    id: "le-twin",
+    title: "Le TWIN",
+    kind: "E-commerce mode",
+    category: "client",
+    date: "Août 2025",
+    image:
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1773366626/WhatsApp_Image_2026-02-07_at_13.55.04_jb8uve.jpg",
+    summary:
+      "Plateforme e-commerce pour une marque de mode urbaine béninoise. Expérience d'achat immersive et gestion de catalogue produits.",
+    detail: "Expérience d'achat immersive et gestion de catalogue produits.",
+    stack: [],
+    links: [{ label: "Voir le site", url: "https://le-twin.vercel.app/" }],
+  },
+  {
+    id: "nuit-du-coeur",
+    title: "Nuit du Cœur",
+    kind: "Vitrine événementielle",
+    category: "client",
+    date: "Novembre 2023",
+    image:
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955767/nuit_de_coeur_jx18zr.avif",
+    summary:
+      "Vitrine digitale pour un événement artistique à Lokossa. Mise en valeur des talents locaux et billetterie en ligne.",
+    detail: "Mise en valeur des talents locaux et billetterie en ligne.",
+    stack: [],
+    links: [{ label: "Voir le site", url: "https://nightheart.rf.gd/" }],
+  },
+  {
+    id: "fieri-research",
+    title: "Fieri Research",
+    kind: "Plateforme d'un club universitaire",
+    category: "client",
+    date: "Mars 2026",
+    image:
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955620/fieri_pjxyof.webp",
+    summary:
+      "Plateforme collaborative pour la recherche scientifique étudiante. Hub central pour les publications et événements académiques.",
+    detail:
+      "Structure les processus de décision de la communauté du club : rôles, propositions, votes et restitution des engagements.",
+    stack: ["React", "Node.js", "PostgreSQL"],
+    links: [{ label: "Voir le site", url: "https://fieri-research.org" }],
+  },
+];
+
+export function getProjectsByCategory(category: ProjectCategory): Project[] {
+  return projects.filter((p) => p.category === category);
+}

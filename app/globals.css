@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-green-primary: #1a433a;
+  --color-orange-accent: #ff701a;
+  --color-bg-light: #f2f1ed;
+  --color-card-light: #ffffff;
+  --color-bg-dark: #0f172a;
+  --color-card-dark: #1e293b;
+  --color-text-light: #f8fafc;
+  --color-text-dark: #1e293b;
+  --color-muted-light: #64748b;
+  --color-muted-dark: #94a3b8;
+  --color-border-gray: #cbd5e1;
+
+  --font-sans: var(--font-outfit), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
+
+  --radius-card: 12px;
+  --radius-btn: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-orange-accent);
+  color: var(--color-bg-dark);
+}
