@@ -3,6 +3,7 @@ import { CtaButton } from "@/components/ui/CtaButton";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Tag } from "@/components/ui/Tag";
+import { services } from "@/lib/services-content";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -10,65 +11,14 @@ export const metadata: Metadata = {
     "Développement web & SaaS, intelligence artificielle, plateformes métier et architecture cloud — les quatre piliers d'expertise d'Excellence Team.",
 };
 
-const pillars = [
-  {
-    tag: "01",
-    title: "Web & SaaS",
-    description:
-      "Applications web complètes, du prototype fonctionnel au produit déployé en production. PWA, tableaux de bord, portails métier.",
-    evidence: ["Next.js / React", "PWA", "API REST", "Node.js"],
-  },
-  {
-    tag: "02",
-    title: "Intelligence Artificielle & Data",
-    description:
-      "Intégration de LLMs en production : RAG, fine-tuning, enrichissement automatique de contenu, génération assistée.",
-    evidence: ["RAG", "Fine-tuning LLM", "Gemini / Groq", "Vector Embeddings"],
-  },
-  {
-    tag: "03",
-    title: "Plateformes métier",
-    description:
-      "Outils de gestion sur mesure pour établissements, associations et communautés : notes, membres, gouvernance, suivi.",
-    evidence: ["Gestion scolaire", "Portails membres", "Automatisation"],
-  },
-  {
-    tag: "04",
-    title: "Cloud & Architecture",
-    description:
-      "Infrastructure pensée pour durer : composants open-source, déploiement souverain, API-first pour s'intégrer à l'existant.",
-    evidence: ["PostgreSQL", "Docker", "Vercel", "API-first"],
-  },
-];
-
-const methodology = [
-  {
-    title: "Vitesse d'exécution",
-    description: "Cycle de développement agile axé sur un prototype fonctionnel immédiat.",
-  },
-  {
-    title: "Sécurité intégrée",
-    description:
-      "Chiffrement et hébergement cloud souverain pour protéger vos secrets d'affaires.",
-  },
-  {
-    title: "Interface intuitive",
-    description: "Un design centré sur l'utilisateur, éliminant les clics inutiles.",
-  },
-];
-
 export default function ServicesPage() {
   return (
     <div className="py-20">
       <Container>
-        <SectionHeading
-          eyebrow="SERVICES & EXPERTISE"
-          title="Ce qu'on sait faire, prouvé par ce qu'on a livré."
-          intro="Pas de catalogue abstrait : chaque pilier ci-dessous correspond à des projets réellement construits et déployés — à retrouver en détail sur la page Projets."
-        />
+        <SectionHeading eyebrow={services.eyebrow} title={services.title} intro={services.intro} />
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {pillars.map((pillar) => (
+          {services.pillars.map((pillar) => (
             <div
               key={pillar.title}
               className="rounded-card border border-border-gray/60 bg-card-light p-8 dark:bg-card-dark"
@@ -95,13 +45,13 @@ export default function ServicesPage() {
         </div>
 
         <div className="mt-24">
-          <Tag>MÉTHODOLOGIE</Tag>
+          <Tag>{services.methodologyEyebrow}</Tag>
           <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-green-primary sm:text-4xl dark:text-text-light">
-            Trois principes, sans exception.
+            {services.methodologyTitle}
           </h2>
 
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {methodology.map((item) => (
+            {services.methodology.map((item) => (
               <div key={item.title}>
                 <p className="font-semibold text-text-dark dark:text-text-light">{item.title}</p>
                 <p className="mt-2 text-sm text-muted-light dark:text-muted-dark">

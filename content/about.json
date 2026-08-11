@@ -1,0 +1,26 @@
+{
+  "eyebrow": "À PROPOS",
+  "title": "Une team, pas un CV collectif.",
+  "intro": "Excellence Team réunit des étudiants en ingénierie et design de Lokossa, Cotonou et d'ailleurs au Bénin, qui apprennent en construisant des produits réels plutôt qu'en attendant un diplôme pour commencer.",
+  "mission": {
+    "eyebrow": "MISSION",
+    "title": "Team · Tech · Innovation",
+    "body": "Prouver que l'ambition, la vigueur et la capacité d'apprentissage de la jeunesse étudiante peuvent concevoir une innovation technologique de classe mondiale — sans attendre les années d'expérience."
+  },
+  "values": [
+    {
+      "title": "Vigueur et réactivité",
+      "description": "Une disponibilité totale et une vitesse d'apprentissage hors pair."
+    },
+    {
+      "title": "Pragmatisme",
+      "description": "Nous apprenons en faisant, validant chaque brique de code par des tests rigoureux."
+    },
+    {
+      "title": "Solidarité",
+      "description": "Un collectif soudé qui partage ses compétences pour résoudre des défis complexes."
+    }
+  ],
+  "teamEyebrow": "LE COLLECTIF",
+  "teamTitle": "Qui construit."
+}

@@ -1,37 +1,47 @@
+"use client";
+
+import { motion } from "motion/react";
+import { home } from "@/lib/home-content";
 import { CtaButton } from "../ui/CtaButton";
 import { Container } from "../ui/Container";
 import { Tag } from "../ui/Tag";
-import { HeroScene } from "./HeroScene";
+import { GeometricPanel } from "./GeometricPanel";
 
 export function Hero() {
+  const { hero } = home;
+
   return (
     <section className="relative overflow-hidden pb-24 pt-16 md:pt-24">
       <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-6">
-        <div className="lg:col-span-6">
-          <Tag>EXCELLENCE TEAM</Tag>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6"
+        >
+          <Tag>{hero.eyebrow}</Tag>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-green-primary sm:text-5xl dark:text-text-light">
-            L&rsquo;innovation tech n&rsquo;attend pas les années d&rsquo;expérience.
+            {hero.title}
           </h1>
           <p className="mt-6 max-w-lg text-lg text-muted-light dark:text-muted-dark">
-            Nous construisons des architectures cloud robustes et des applications SaaS
-            scalables, propulsées par l&rsquo;énergie des meilleurs talents universitaires.
+            {hero.subtitle}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <CtaButton href="/projets">Explorer nos projets open-source</CtaButton>
-            <CtaButton href="/services" variant="outline">
-              Voir nos services
+            <CtaButton href={hero.primaryCta.href}>{hero.primaryCta.label}</CtaButton>
+            <CtaButton href={hero.secondaryCta.href} variant="outline">
+              {hero.secondaryCta.label}
             </CtaButton>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="lg:col-span-6">
-          <div
-            className="relative aspect-[16/9] overflow-hidden rounded-card border border-border-gray/60 shadow-2xl shadow-green-primary/10"
-            aria-hidden="true"
-          >
-            <HeroScene />
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6"
+        >
+          <GeometricPanel tone="light" />
+        </motion.div>
       </Container>
     </section>
   );
