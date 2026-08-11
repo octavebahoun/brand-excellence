@@ -18,8 +18,10 @@ export function GeometricPanel({
 
   return (
     <div
-      className={`relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-card border ${
-        tone === "dark" ? "border-white/10 bg-green-primary" : "border-border-gray/60 bg-card-light dark:bg-card-dark"
+      className={`relative flex aspect-[16/9] items-center justify-center overflow-hidden border-2 shadow-[8px_8px_0_0_var(--color-orange-accent)] ${
+        tone === "dark"
+          ? "border-white/20 bg-green-primary"
+          : "border-green-primary bg-card-light dark:border-white/20 dark:bg-card-dark"
       }`}
     >
       <svg className="absolute inset-0 h-full w-full opacity-20" aria-hidden="true">

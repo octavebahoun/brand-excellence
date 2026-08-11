@@ -1,6 +1,7 @@
 export function Tag({ children }: { children: string }) {
   return (
-    <span className="inline-block rounded-btn border border-orange-accent/40 bg-orange-accent/10 px-3 py-1 font-mono text-xs tracking-wide text-orange-accent">
+    <span className="inline-flex items-center gap-2 border-b-2 border-orange-accent pb-1 font-mono text-xs font-semibold uppercase tracking-widest text-orange-accent">
+      <span aria-hidden="true">{"//"}</span>
       {children}
     </span>
   );
