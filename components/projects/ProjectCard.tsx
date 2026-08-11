@@ -4,7 +4,13 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import type { Project } from "@/lib/projects-data";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  className = "",
+}: {
+  project: Project;
+  className?: string;
+}) {
   return (
     <motion.article
       layout
@@ -13,7 +19,7 @@ export function ProjectCard({ project }: { project: Project }) {
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
-      className="group flex flex-col overflow-hidden rounded-card border border-border-gray/60 bg-card-light transition-colors hover:border-orange-accent/50 dark:bg-card-dark"
+      className={`group flex flex-col overflow-hidden border-2 border-green-primary/70 bg-card-light shadow-[4px_4px_0_0_var(--color-green-primary)] transition-shadow hover:border-orange-accent hover:shadow-[6px_6px_0_0_var(--color-orange-accent)] dark:border-white/25 dark:bg-card-dark dark:shadow-[4px_4px_0_0_rgba(248,250,252,0.18)] dark:hover:border-orange-accent dark:hover:shadow-[6px_6px_0_0_var(--color-orange-accent)] ${className}`}
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         {project.image ? (

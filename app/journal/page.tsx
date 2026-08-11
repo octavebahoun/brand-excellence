@@ -32,7 +32,7 @@ export default function JournalPage() {
           </Reveal>
 
           <Reveal delay={0.2} className="lg:col-span-7">
-            <div className="rounded-card border border-dashed border-border-gray p-10">
+            <div className="border-2 border-dashed border-green-primary/60 p-10 dark:border-white/30">
               <p className="font-mono text-xs uppercase tracking-wide text-orange-accent">
                 {journalPage.emptyStateTag}
               </p>

@@ -24,12 +24,12 @@ export default function ServicesPage() {
           />
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {services.pillars.map((pillar, i) => (
-            <Reveal key={pillar.title} delay={i * 0.08}>
-              <div className="h-full rounded-card border border-border-gray/60 bg-card-light p-8 transition-transform hover:-translate-y-1 dark:bg-card-dark">
+            <Reveal key={pillar.title} delay={i * 0.08} className={i % 2 === 1 ? "sm:mt-8" : ""}>
+              <div className="h-full border-2 border-green-primary/70 bg-card-light p-8 shadow-[6px_6px_0_0_var(--color-green-primary)] transition-shadow hover:border-orange-accent hover:shadow-[9px_9px_0_0_var(--color-orange-accent)] dark:border-white/25 dark:bg-card-dark dark:shadow-[6px_6px_0_0_rgba(248,250,252,0.18)] dark:hover:border-orange-accent dark:hover:shadow-[9px_9px_0_0_var(--color-orange-accent)]">
                 <span className="font-mono text-sm text-orange-accent">{pillar.tag}</span>
-                <h3 className="mt-3 text-xl font-bold text-green-primary dark:text-text-light">
+                <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-green-primary dark:text-text-light">
                   {pillar.title}
                 </h3>
                 <p className="mt-3 text-sm text-muted-light dark:text-muted-dark">
@@ -39,7 +39,7 @@ export default function ServicesPage() {
                   {pillar.evidence.map((item) => (
                     <li
                       key={item}
-                      className="rounded-btn border border-border-gray/60 px-2 py-0.5 font-mono text-[10px] text-muted-light dark:text-muted-dark"
+                      className="border border-border-gray/60 px-2 py-0.5 font-mono text-[10px] text-muted-light dark:text-muted-dark"
                     >
                       {item}
                     </li>
@@ -50,10 +50,10 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        <div className="mt-24">
+        <div className="mt-32">
           <Reveal>
             <Tag>{services.methodologyEyebrow}</Tag>
-            <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight text-green-primary sm:text-4xl dark:text-text-light">
+            <h2 className="mt-5 max-w-2xl text-4xl font-extrabold leading-[0.95] tracking-tight text-green-primary sm:text-5xl dark:text-text-light">
               {services.methodologyTitle}
             </h2>
           </Reveal>
@@ -61,8 +61,10 @@ export default function ServicesPage() {
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
             {services.methodology.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
-                <p className="font-semibold text-text-dark dark:text-text-light">{item.title}</p>
-                <p className="mt-2 text-sm text-muted-light dark:text-muted-dark">
+                <p className="border-l-2 border-orange-accent pl-4 font-semibold text-text-dark dark:text-text-light">
+                  {item.title}
+                </p>
+                <p className="mt-2 pl-4 text-sm text-muted-light dark:text-muted-dark">
                   {item.description}
                 </p>
               </Reveal>
