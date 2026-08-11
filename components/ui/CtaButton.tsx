@@ -9,15 +9,17 @@ export function CtaButton({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "solid" | "outline";
+  variant?: "solid" | "outline" | "outline-on-dark";
   external?: boolean;
 }) {
   const base =
     "inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3 text-sm font-semibold transition-colors";
-  const styles =
-    variant === "solid"
-      ? "bg-orange-accent text-bg-dark hover:bg-orange-accent/90"
-      : "border border-current text-text-dark hover:bg-green-primary/5 dark:text-text-light dark:hover:bg-white/5";
+  const styles = {
+    solid: "bg-orange-accent text-bg-dark hover:bg-orange-accent/90",
+    outline:
+      "border border-current text-text-dark hover:bg-green-primary/5 dark:text-text-light dark:hover:bg-white/5",
+    "outline-on-dark": "border border-white/30 text-text-light hover:bg-white/10",
+  }[variant];
 
   if (external) {
     return (

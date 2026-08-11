@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { contactPage } from "@/lib/pages-content";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -16,9 +17,9 @@ export default function ContactPage() {
     <div className="py-20">
       <Container>
         <SectionHeading
-          eyebrow="CONTACT"
-          title="Discutons de votre projet."
-          intro="Décrivez votre besoin en quelques lignes, ou réservez directement un créneau technique avec l'équipe."
+          eyebrow={contactPage.eyebrow}
+          title={contactPage.title}
+          intro={contactPage.intro}
         />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
@@ -30,13 +31,13 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium">
-                  Nom
+                  {contactPage.nameLabel}
                 </label>
                 <input id="name" name="name" type="text" required className={inputClasses} />
               </div>
               <div>
                 <label htmlFor="email" className="mb-2 block text-sm font-medium">
-                  E-mail
+                  {contactPage.emailLabel}
                 </label>
                 <input id="email" name="email" type="email" required className={inputClasses} />
               </div>
@@ -44,7 +45,7 @@ export default function ContactPage() {
 
             <div>
               <label htmlFor="message" className="mb-2 block text-sm font-medium">
-                Votre projet
+                {contactPage.messageLabel}
               </label>
               <textarea
                 id="message"
@@ -59,17 +60,17 @@ export default function ContactPage() {
               type="submit"
               className="rounded-btn bg-orange-accent px-6 py-3 text-sm font-semibold text-bg-dark transition-colors hover:bg-orange-accent/90"
             >
-              Envoyer le message
+              {contactPage.submitLabel}
             </button>
           </form>
 
           <div className="space-y-6 lg:col-span-5">
             <div className="rounded-card border border-border-gray/60 bg-card-light p-8 dark:bg-card-dark">
               <h3 className="font-mono text-xs uppercase tracking-wide text-orange-accent">
-                Réserver un créneau
+                {contactPage.bookingTitle}
               </h3>
               <p className="mt-3 text-sm text-muted-light dark:text-muted-dark">
-                Échangez directement avec l&rsquo;équipe autour d&rsquo;un entretien technique.
+                {contactPage.bookingDescription}
               </p>
               <a
                 href={siteConfig.bookingUrl}
@@ -77,13 +78,13 @@ export default function ContactPage() {
                 rel="noreferrer"
                 className="mt-5 inline-flex items-center gap-2 rounded-btn border border-orange-accent px-5 py-2.5 text-sm font-semibold text-orange-accent transition-colors hover:bg-orange-accent hover:text-bg-dark"
               >
-                Planifier un entretien technique →
+                {contactPage.bookingCta}
               </a>
             </div>
 
             <div className="rounded-card border border-border-gray/60 bg-card-light p-8 dark:bg-card-dark">
               <h3 className="font-mono text-xs uppercase tracking-wide text-orange-accent">
-                Coordonnées
+                {contactPage.coordinatesTitle}
               </h3>
               <ul className="mt-4 space-y-3 text-sm">
                 <li>

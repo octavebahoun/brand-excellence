@@ -1,0 +1,47 @@
+{
+  "eyebrow": "SERVICES & EXPERTISE",
+  "title": "Ce qu'on sait faire, prouvé par ce qu'on a livré.",
+  "intro": "Pas de catalogue abstrait : chaque pilier ci-dessous correspond à des projets réellement construits et déployés — à retrouver en détail sur la page Projets.",
+  "pillars": [
+    {
+      "tag": "01",
+      "title": "Web & SaaS",
+      "description": "Applications web complètes, du prototype fonctionnel au produit déployé en production. PWA, tableaux de bord, portails métier.",
+      "evidence": ["Next.js / React", "PWA", "API REST", "Node.js"]
+    },
+    {
+      "tag": "02",
+      "title": "Intelligence Artificielle & Data",
+      "description": "Intégration de LLMs en production : RAG, fine-tuning, enrichissement automatique de contenu, génération assistée.",
+      "evidence": ["RAG", "Fine-tuning LLM", "Gemini / Groq", "Vector Embeddings"]
+    },
+    {
+      "tag": "03",
+      "title": "Plateformes métier",
+      "description": "Outils de gestion sur mesure pour établissements, associations et communautés : notes, membres, gouvernance, suivi.",
+      "evidence": ["Gestion scolaire", "Portails membres", "Automatisation"]
+    },
+    {
+      "tag": "04",
+      "title": "Cloud & Architecture",
+      "description": "Infrastructure pensée pour durer : composants open-source, déploiement souverain, API-first pour s'intégrer à l'existant.",
+      "evidence": ["PostgreSQL", "Docker", "Vercel", "API-first"]
+    }
+  ],
+  "methodologyEyebrow": "MÉTHODOLOGIE",
+  "methodologyTitle": "Trois principes, sans exception.",
+  "methodology": [
+    {
+      "title": "Vitesse d'exécution",
+      "description": "Cycle de développement agile axé sur un prototype fonctionnel immédiat."
+    },
+    {
+      "title": "Sécurité intégrée",
+      "description": "Chiffrement et hébergement cloud souverain pour protéger vos secrets d'affaires."
+    },
+    {
+      "title": "Interface intuitive",
+      "description": "Un design centré sur l'utilisateur, éliminant les clics inutiles."
+    }
+  ]
+}

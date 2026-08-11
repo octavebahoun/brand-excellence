@@ -1,7 +1,10 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "motion/react";
 import { CtaButton } from "../ui/CtaButton";
 import { Container } from "../ui/Container";
 import { Tag } from "../ui/Tag";
+import { GeometricPanel } from "./GeometricPanel";
 
 export interface SplitSectionPoint {
   title: string;
@@ -10,23 +13,22 @@ export interface SplitSectionPoint {
 
 export function SplitSection({
   id,
+  index,
   eyebrow,
   title,
   intro,
   points,
-  image,
-  imageAlt,
   reverse = false,
   cta,
   tone = "light",
 }: {
   id?: string;
+  /** Repère "01"–"04" affiché en filigrane sur le panneau visuel. */
+  index: string;
   eyebrow: string;
   title: string;
   intro?: string;
   points: SplitSectionPoint[];
-  image: string;
-  imageAlt: string;
   reverse?: boolean;
   cta?: { label: string; href: string };
   tone?: "light" | "dark";
@@ -36,13 +38,17 @@ export function SplitSection({
   return (
     <section
       id={id}
-      className={`scroll-mt-24 py-24 ${
-        isDarkTone ? "bg-green-primary text-text-light" : ""
-      }`}
+      className={`scroll-mt-24 py-24 ${isDarkTone ? "bg-green-primary text-text-light" : ""}`}
     >
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className={`lg:col-span-6 ${reverse ? "lg:order-2" : ""}`}>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className={`lg:col-span-6 ${reverse ? "lg:order-2" : ""}`}
+          >
             <Tag>{eyebrow}</Tag>
             <h2
               className={`mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl ${
@@ -92,18 +98,10 @@ export function SplitSection({
                 <CtaButton href={cta.href}>{cta.label}</CtaButton>
               </div>
             ) : null}
-          </div>
+          </motion.div>
 
           <div className={`lg:col-span-6 ${reverse ? "lg:order-1" : ""}`}>
-            <div className="relative aspect-[16/9] overflow-hidden rounded-card border border-border-gray/60">
-              <Image
-                src={image}
-                alt={imageAlt}
-                fill
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-cover"
-              />
-            </div>
+            <GeometricPanel label={index} tone={isDarkTone ? "dark" : "light"} rotate={reverse ? 4 : -4} />
           </div>
         </div>
       </Container>

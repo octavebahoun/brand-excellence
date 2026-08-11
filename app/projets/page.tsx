@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ProjectsGrid } from "@/components/projects/ProjectsGrid";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { projetsPage } from "@/lib/pages-content";
 
 export const metadata: Metadata = {
   title: "Projets",
@@ -14,9 +15,9 @@ export default function ProjetsPage() {
     <div className="py-20">
       <Container>
         <SectionHeading
-          eyebrow="PROJETS"
-          title="Ce qu'on a déjà construit."
-          intro="Outils open source publiés librement, produits SaaS que nous opérons, et réalisations menées pour des clients réels — pas de démo, que du déployé."
+          eyebrow={projetsPage.eyebrow}
+          title={projetsPage.title}
+          intro={projetsPage.intro}
         />
         <ProjectsGrid />
       </Container>

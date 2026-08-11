@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { navLinks, siteConfig } from "@/lib/site-config";
 import { Container } from "../ui/Container";
+import { Logo } from "../ui/Logo";
 
 export function Footer() {
   return (
     <footer className="border-t border-border-gray/60">
       <Container className="grid grid-cols-1 gap-10 py-16 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
-          <span className="text-lg font-extrabold tracking-tight text-green-primary dark:text-text-light">
-            EXCELLENCE <span className="text-orange-accent">TEAM</span>
-          </span>
+          <div className="flex items-center gap-3">
+            <Logo className="h-8 w-8 text-green-primary dark:text-text-light" />
+            <span className="text-lg font-extrabold tracking-tight text-green-primary dark:text-text-light">
+              EXCELLENCE <span className="text-orange-accent">TEAM</span>
+            </span>
+          </div>
           <p className="mt-4 max-w-sm text-sm text-muted-light dark:text-muted-dark">
             {siteConfig.description}
           </p>

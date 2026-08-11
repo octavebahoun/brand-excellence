@@ -1,0 +1,27 @@
+{
+  "projets": {
+    "eyebrow": "PROJETS",
+    "title": "Ce qu'on a déjà construit.",
+    "intro": "Outils open source publiés librement, produits SaaS que nous opérons, et réalisations menées pour des clients réels — pas de démo, que du déployé."
+  },
+  "journal": {
+    "eyebrow": "JOURNAL",
+    "title": "Notes techniques & retours de hackathon.",
+    "intro": "Pas de contenu marketing : des retours d'expérience bruts sur ce qu'on construit, ce qui casse, et ce qu'on apprend — hackathon après hackathon (EPITNET, HackByIFRI...).",
+    "emptyStateTag": "Bientôt",
+    "emptyStateMessage": "Les premiers billets sont en cours de rédaction. Revenez après le prochain hackathon."
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "Discutons de votre projet.",
+    "intro": "Décrivez votre besoin en quelques lignes, ou réservez directement un créneau technique avec l'équipe.",
+    "nameLabel": "Nom",
+    "emailLabel": "E-mail",
+    "messageLabel": "Votre projet",
+    "submitLabel": "Envoyer le message",
+    "bookingTitle": "Réserver un créneau",
+    "bookingDescription": "Échangez directement avec l'équipe autour d'un entretien technique.",
+    "bookingCta": "Planifier un entretien technique →",
+    "coordinatesTitle": "Coordonnées"
+  }
+}

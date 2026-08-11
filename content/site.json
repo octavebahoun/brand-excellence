@@ -1,0 +1,20 @@
+{
+  "name": "Excellence Team",
+  "tagline": "Team · Tech · Innovation",
+  "domain": "excellenceteam.site",
+  "url": "https://excellenceteam.site",
+  "title": "Excellence Team | Révolutionner l'Innovation Tech par les Étudiants",
+  "description": "Excellence Team conçoit des architectures cloud robustes et des applications SaaS scalables, propulsées par l'énergie des meilleurs talents universitaires.",
+  "email": "contact@excellenceteam.site",
+  "github": "https://github.com/octavebahoun",
+  "bookingUrl": "https://cal.com/excellence-team",
+  "formspreeEndpoint": "https://formspree.io/f/YOUR_FORM_ID",
+  "nav": [
+    { "label": "Accueil", "href": "/" },
+    { "label": "Projets", "href": "/projets" },
+    { "label": "Services", "href": "/services" },
+    { "label": "À propos", "href": "/a-propos" },
+    { "label": "Journal", "href": "/journal" },
+    { "label": "Contact", "href": "/contact" }
+  ]
+}

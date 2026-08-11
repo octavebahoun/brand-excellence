@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks } from "@/lib/site-config";
+import { Logo } from "../ui/Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
@@ -15,20 +15,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border-gray/60 bg-bg-light/80 backdrop-blur-lg dark:bg-bg-dark/80">
       <div className="mx-auto flex h-20 w-full max-w-[1400px] items-center justify-between px-8 md:px-12">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Image
-            src="/images/logo-light.jpg"
-            alt="Excellence Team"
-            width={40}
-            height={33}
-            className="block rounded-lg border-2 border-orange-accent dark:hidden"
-          />
-          <Image
-            src="/images/logo-dark.jpg"
-            alt="Excellence Team"
-            width={40}
-            height={33}
-            className="hidden rounded-lg border-2 border-orange-accent dark:block"
-          />
+          <Logo className="h-9 w-9 text-green-primary dark:text-text-light" />
           <span className="text-lg font-extrabold tracking-tight text-green-primary dark:text-text-light">
             EXCELLENCE <span className="text-orange-accent">TEAM</span>
           </span>

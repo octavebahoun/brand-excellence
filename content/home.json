@@ -1,0 +1,107 @@
+{
+  "hero": {
+    "eyebrow": "EXCELLENCE TEAM",
+    "title": "L'innovation tech n'attend pas les années d'expérience.",
+    "subtitle": "Nous construisons des architectures cloud robustes et des applications SaaS scalables, propulsées par l'énergie des meilleurs talents universitaires.",
+    "primaryCta": { "label": "Explorer nos projets open-source", "href": "/projets" },
+    "secondaryCta": { "label": "Voir nos services", "href": "/services" }
+  },
+  "sections": [
+    {
+      "id": "defi",
+      "eyebrow": "01 // LE DÉFI",
+      "title": "Pourquoi la tech d'entreprise stagne-t-elle ?",
+      "intro": "Les solutions logicielles existantes souffrent de trois freins majeurs :",
+      "points": [
+        {
+          "title": "Lenteur de déploiement",
+          "description": "Les structures traditionnelles mettent des mois à adapter leurs outils."
+        },
+        {
+          "title": "Manque de souveraineté",
+          "description": "Les données locales sont externalisées sans garantie de confidentialité."
+        },
+        {
+          "title": "Déconnexion terrain",
+          "description": "Des outils complexes conçus loin des utilisateurs réels."
+        }
+      ],
+      "reverse": false,
+      "tone": "light"
+    },
+    {
+      "id": "solution",
+      "eyebrow": "02 // LA SOLUTION",
+      "title": "Des logiciels performants livrés en deux semaines.",
+      "intro": "Nous créons des applications web et SaaS taillées pour le terrain :",
+      "points": [
+        {
+          "title": "Vitesse d'exécution",
+          "description": "Un cycle de développement agile axé sur un prototype fonctionnel immédiat."
+        },
+        {
+          "title": "Sécurité intégrée",
+          "description": "Chiffrement local et hébergement cloud souverain pour protéger vos secrets d'affaires."
+        },
+        {
+          "title": "Interface intuitive",
+          "description": "Un design centré sur l'utilisateur, éliminant les clics inutiles."
+        }
+      ],
+      "reverse": true,
+      "tone": "light",
+      "cta": { "label": "Lancer une simulation de projet", "href": "/contact" }
+    },
+    {
+      "id": "architecture",
+      "eyebrow": "03 // ARCHITECTURE & BLUEPRINT",
+      "title": "Une infrastructure moderne, robuste et ouverte.",
+      "intro": "Notre stack technique repose sur trois piliers d'ingénierie :",
+      "points": [
+        {
+          "title": "Composants Open-Source",
+          "description": "Indépendance totale vis-à-vis des licences éditeurs."
+        },
+        {
+          "title": "Pipeline Cloud Souverain",
+          "description": "Déploiement automatisé sur serveurs locaux sécurisés."
+        },
+        {
+          "title": "Architecture API-First",
+          "description": "Intégration facile avec vos outils de comptabilité ou ERP existants."
+        }
+      ],
+      "reverse": false,
+      "tone": "dark"
+    },
+    {
+      "id": "equipe",
+      "eyebrow": "04 // COLLECTIF & VIGUEUR",
+      "title": "La force de l'apprentissage par la pratique.",
+      "intro": "Excellence Team réunit les meilleurs étudiants en ingénierie et design. Sans le poids des méthodes obsolètes, nous apportons :",
+      "points": [
+        {
+          "title": "Vigueur et réactivité",
+          "description": "Une disponibilité totale et une vitesse d'apprentissage hors pair."
+        },
+        {
+          "title": "Pragmatisme",
+          "description": "Nous apprenons en faisant, validant chaque brique de code par des tests rigoureux."
+        },
+        {
+          "title": "Solidarité",
+          "description": "Un collectif soudé qui partage ses compétences pour résoudre vos défis complexes."
+        }
+      ],
+      "reverse": true,
+      "tone": "light",
+      "cta": { "label": "Découvrir l'équipe", "href": "/a-propos" }
+    }
+  ],
+  "closing": {
+    "eyebrow": "TEAM • TECH • INNOVATION",
+    "title": "Bâtissons votre prochaine innovation.",
+    "subtitle": "Rejoignez un collectif d'étudiants talentueux déterminés à redéfinir les standards de la tech d'entreprise.",
+    "cta": { "label": "Planifier un entretien technique", "href": "/contact" }
+  }
+}
