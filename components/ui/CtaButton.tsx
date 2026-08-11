@@ -6,7 +6,10 @@ import { ReactNode } from "react";
 
 const MotionLink = motion.create(Link);
 
-const tapAnimation = { whileHover: { scale: 1.03 }, whileTap: { scale: 0.97 } };
+const scaleAnimation = {
+  whileHover: { scale: 1.03 },
+  whileTap: { scale: 0.97 },
+};
 
 export function CtaButton({
   href,
@@ -19,14 +22,17 @@ export function CtaButton({
   variant?: "solid" | "outline" | "outline-on-dark";
   external?: boolean;
 }) {
-  const base =
-    "inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3 text-sm font-semibold transition-colors";
+  const base = "inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold";
   const styles = {
-    solid: "bg-orange-accent text-bg-dark hover:bg-orange-accent/90",
+    // Le survol/clic est géré en CSS pur (translate + ombre qui se réduit) :
+    // pas de whileHover/whileTap motion ici pour éviter un conflit sur `transform`.
+    solid:
+      "border-2 border-bg-dark bg-orange-accent text-bg-dark shadow-[5px_5px_0_0_var(--color-bg-dark)] transition-all duration-150 hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[2px_2px_0_0_var(--color-bg-dark)] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none dark:border-text-light dark:shadow-[5px_5px_0_0_var(--color-text-light)] dark:hover:shadow-[2px_2px_0_0_var(--color-text-light)]",
     outline:
-      "border border-current text-text-dark hover:bg-green-primary/5 dark:text-text-light dark:hover:bg-white/5",
-    "outline-on-dark": "border border-white/30 text-text-light hover:bg-white/10",
+      "border-2 border-current text-text-dark transition-colors hover:bg-green-primary/5 dark:text-text-light dark:hover:bg-white/5",
+    "outline-on-dark": "border-2 border-white/30 text-text-light transition-colors hover:bg-white/10",
   }[variant];
+  const motionProps = variant === "solid" ? {} : scaleAnimation;
 
   if (external) {
     return (
@@ -35,7 +41,7 @@ export function CtaButton({
         target="_blank"
         rel="noreferrer"
         className={`${base} ${styles}`}
-        {...tapAnimation}
+        {...motionProps}
       >
         {children}
       </motion.a>
@@ -43,7 +49,7 @@ export function CtaButton({
   }
 
   return (
-    <MotionLink href={href} className={`${base} ${styles}`} {...tapAnimation}>
+    <MotionLink href={href} className={`${base} ${styles}`} {...motionProps}>
       {children}
     </MotionLink>
   );

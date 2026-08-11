@@ -18,8 +18,8 @@
   --font-sans: var(--font-outfit), ui-sans-serif, sans-serif;
   --font-mono: var(--font-fira-code), ui-monospace, monospace;
 
-  --radius-card: 12px;
-  --radius-btn: 6px;
+  --radius-card: 0px;
+  --radius-btn: 0px;
 }
 
 html {
