@@ -8,7 +8,7 @@
   "email": "contact@excellenceteam.site",
   "github": "https://github.com/octavebahoun",
   "bookingUrl": "https://cal.com/excellence-team",
-  "formspreeEndpoint": "https://formspree.io/f/YOUR_FORM_ID",
+  "formspreeEndpoint": "https://formspree.io/f/xeewrzwe",
   "nav": [
     { "label": "Accueil", "href": "/" },
     { "label": "Projets", "href": "/projets" },
